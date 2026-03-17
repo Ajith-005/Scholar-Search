@@ -1,0 +1,247 @@
+.scholar-home {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #214085 0%, #59abe3 100%);
+  color: #222;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.scholar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem 3vw;
+  box-shadow: 0 2px 12px rgba(30, 60, 120, 0.12);
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #214085;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.scholar-nav a {
+  margin-left: 2vw;
+  text-decoration: none;
+  color: #375792;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  border-radius: 18px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.scholar-nav .nav-login {
+  background: #214085;
+  color: #fff;
+  margin-left: 2vw;
+}
+
+.scholar-nav a:hover {
+  background: #59abe3;
+  color: #fff;
+}
+
+/* Main & Hero */
+.scholar-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7vh;
+}
+
+.hero {
+  text-align: center;
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(33, 64, 133, 0.14);
+  margin-bottom: 3rem;
+  animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.hero h1 {
+  color: #214085;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .accent {
+  color: #59abe3;
+}
+
+.hero p {
+  color: #3d527a;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #295397 0%, #59abe3 100%);
+  color: #fff;
+  padding: 0.8rem 2.1rem;
+  border-radius: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 2px 15px rgba(41, 83, 151, 0.15);
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #59abe3 0%, #295397 100%);
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1050px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1 1 280px;
+  background: #f4f7fb;
+  border-radius: 18px;
+  padding: 2rem 1.2rem;
+  text-align: center;
+  margin: 1rem 0;
+  min-width: 250px;
+  max-width: 320px;
+  box-shadow: 0 2px 13px rgba(80, 140, 200, 0.08);
+  transition: transform .2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-7px) scale(1.04);
+}
+
+.feature-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.feature-card h2 {
+  color: #2a5393;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: #3a4d6a;
+  font-size: 1rem;
+}
+
+/* Testimonials */
+.testimonials {
+  width: 100%;
+  max-width: 1100px;
+  margin: 3rem auto 2rem auto;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 2px 17px rgba(33, 64, 133, 0.09);
+  padding: 2.5rem 1.2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #214085;
+  margin-bottom: 2rem;
+}
+
+.testimonial-list {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial {
+  flex: 1 1 280px;
+  min-width: 220px;
+  max-width: 340px;
+  font-style: italic;
+  background: #f6f9ff;
+  margin: 0.7rem 0;
+  border-radius: 16px;
+  padding: 1.6rem 1.1rem;
+  box-shadow: 0 1px 7px rgba(120,140,170,0.07);
+  color: #2f4472;
+}
+
+.testimonial span {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.97rem;
+  color: #437C97;
+  font-style: normal;
+}
+
+/* Footer */
+.scholar-footer {
+  background: #fff;
+  padding: 1.2rem 0 0.4rem 0;
+  text-align: center;
+  color: #5873a6;
+  font-size: 1rem;
+  box-shadow: 0 -1px 7px rgba(50, 100, 190, 0.07);
+}
+
+.footer-divider {
+  margin: 0 1rem;
+  color: #b6c6e0;
+}
+
+.social-links {
+  margin-top: 0.6rem;
+}
+
+.social-links a {
+  color: #214085;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.social-links a:hover {
+  color: #59abe3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .features, .testimonial-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .scholar-header,
+  .logo,
+  .scholar-nav a {
+    font-size: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .scholar-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  .logo { margin-bottom: 0.3rem; }
+  .scholar-main { padding-top: 3vh; }
+  .hero, .testimonials { padding: 1.2rem 0.4rem; }
+}

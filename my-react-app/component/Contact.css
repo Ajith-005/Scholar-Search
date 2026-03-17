@@ -1,0 +1,440 @@
+/* =============================================
+   ScholarSearch — Contact Page
+   ============================================= */
+
+:root {
+  --navy:       #0f2d3d;
+  --teal:       #1a5f7a;
+  --sky:        #2e8fc9;
+  --accent:     #f4a522;
+  --success:    #22a06b;
+  --danger:     #e05470;
+  --light-bg:   #f5f8fb;
+  --card-bg:    #ffffff;
+  --border:     #dde8f0;
+  --text:       #1e3a4a;
+  --muted:      #5d7f95;
+  --white:      #ffffff;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --shadow-sm:  0 2px 8px rgba(15,45,61,0.06);
+  --shadow-md:  0 6px 24px rgba(15,45,61,0.10);
+  --shadow-lg:  0 16px 48px rgba(15,45,61,0.14);
+  --transition: 0.22s ease;
+}
+
+/* ── PAGE SHELL ── */
+.ct-page {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background: var(--light-bg);
+  min-height: 100vh;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--text);
+}
+
+.ct-container {
+  display: flex;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 24px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  min-height: 600px;
+  margin-top: 60px;
+}
+
+/* ── LEFT PANEL ── */
+.ct-left {
+  flex: 1;
+  background: var(--navy);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circles */
+.ct-left::before,
+.ct-left::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ct-left::before {
+  width: 280px;
+  height: 280px;
+  background: rgba(46,143,201,0.08);
+  top: -80px;
+  right: -80px;
+}
+
+.ct-left::after {
+  width: 180px;
+  height: 180px;
+  background: rgba(244,165,34,0.06);
+  bottom: -40px;
+  left: -40px;
+}
+
+.ct-left-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ct-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sky);
+  background: rgba(46,143,201,0.12);
+  border: 1px solid rgba(46,143,201,0.25);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.ct-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.ct-title-accent {
+  color: var(--sky);
+}
+
+.ct-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 44px;
+  max-width: 380px;
+}
+
+/* Contact info list */
+.ct-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ct-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ct-info-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sky);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ct-info-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ct-info-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.40);
+}
+
+.ct-info-value {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.80);
+  line-height: 1.5;
+}
+
+.ct-info-link {
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.ct-info-link:hover {
+  color: var(--sky);
+}
+
+/* ── RIGHT PANEL ── */
+.ct-right {
+  flex-basis: 480px;
+  background: var(--card-bg);
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ct-form-header {
+  margin-bottom: 32px;
+}
+
+.ct-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.ct-form-sub {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* ── FORM ── */
+.ct-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ct-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ct-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ct-field-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.ct-required {
+  color: var(--danger);
+}
+
+.ct-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #aabbc7;
+}
+
+.ct-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--light-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+}
+
+.ct-input::placeholder {
+  color: #aabbc7;
+}
+
+.ct-input:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(46,143,201,0.12);
+  background: var(--card-bg);
+}
+
+.ct-textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ── BUTTONS ── */
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+}
+
+.ct-btn--primary {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 3px 12px rgba(15,45,61,0.22);
+}
+
+.ct-btn--primary:hover:not(:disabled) {
+  background: var(--teal);
+  box-shadow: 0 5px 18px rgba(26,95,122,0.30);
+  transform: translateY(-1px);
+}
+
+.ct-btn--primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ct-btn--ghost {
+  background: var(--light-bg);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  margin-top: 8px;
+}
+
+.ct-btn--ghost:hover {
+  border-color: var(--sky);
+  color: var(--sky);
+}
+
+/* Spinner inside button */
+.ct-btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: ct-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes ct-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── STATUS MESSAGES ── */
+.ct-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--danger);
+  background: rgba(224,84,112,0.07);
+  border: 1px solid rgba(224,84,112,0.20);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+/* ── SUCCESS STATE ── */
+.ct-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  gap: 12px;
+}
+
+.ct-success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(34,160,107,0.10);
+  border: 2px solid rgba(34,160,107,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+  margin-bottom: 4px;
+}
+
+.ct-success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.ct-success-text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .ct-page {
+    padding-top: 72px;
+    align-items: flex-start;
+  }
+
+  .ct-container {
+    flex-direction: column;
+    margin: 0 16px;
+    min-height: unset;
+    margin-top: 50px;
+  }
+
+  .ct-left {
+    padding: 40px 28px;
+  }
+
+  .ct-title {
+    font-size: 1.9rem;
+  }
+
+  .ct-right {
+    flex-basis: auto;
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ct-title {
+    font-size: 1.6rem;
+  }
+
+  .ct-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-left {
+    padding: 32px 20px;
+  }
+
+  .ct-right {
+    padding: 28px 20px;
+  }
+
+  .ct-form-title {
+    font-size: 1.4rem;
+  }
+}

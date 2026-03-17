@@ -1,0 +1,332 @@
+/* =============================================
+   ScholarSearch — Register Page
+   All classes prefixed: reg-
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --rg-navy:       #0f2d3d;
+  --rg-teal:       #1a5f7a;
+  --rg-sky:        #2e8fc9;
+  --rg-danger:     #e05470;
+  --rg-light:      #f5f8fb;
+  --rg-card:       #ffffff;
+  --rg-border:     #dde8f0;
+  --rg-text:       #1e3a4a;
+  --rg-muted:      #5d7f95;
+  --rg-white:      #ffffff;
+  --rg-radius:     22px;
+  --rg-shadow:     0 16px 48px rgba(15, 45, 61, 0.14);
+  --rg-transition: 0.22s ease;
+}
+
+/* ── PAGE ── */
+.reg-page {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--rg-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--rg-text);
+}
+
+/* ── CARD ── */
+.reg-card {
+  display: flex;
+  flex-direction: row-reverse; /* image panel on right */
+  width: 100%;
+  max-width: 900px;
+  min-height: 560px;
+  border-radius: var(--rg-radius);
+  overflow: hidden;
+  box-shadow: var(--rg-shadow);
+}
+
+/* ── RIGHT PANEL (branding) ── */
+.reg-panel {
+  flex: 1;
+  background: var(--rg-navy);
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circles */
+.reg-panel::before,
+.reg-panel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.reg-panel::before {
+  width: 260px;
+  height: 260px;
+  background: rgba(46, 143, 201, 0.07);
+  bottom: -70px;
+  left: -70px;
+}
+.reg-panel::after {
+  width: 160px;
+  height: 160px;
+  background: rgba(244, 165, 34, 0.05);
+  top: -40px;
+  right: -40px;
+}
+
+.reg-panel-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.reg-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--rg-sky);
+  background: rgba(46, 143, 201, 0.12);
+  border: 1px solid rgba(46, 143, 201, 0.25);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.reg-panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--rg-white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.reg-panel-title span {
+  color: var(--rg-sky);
+}
+
+.reg-panel-desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.75;
+  margin-bottom: 40px;
+  max-width: 300px;
+}
+
+.reg-panel-img {
+  width: 100%;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.90;
+}
+
+/* ── LEFT PANEL (form) ── */
+.reg-form-panel {
+  flex-basis: 420px;
+  background: var(--rg-card);
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reg-form-header {
+  margin-bottom: 28px;
+}
+
+.reg-form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--rg-navy);
+  margin-bottom: 6px;
+}
+
+.reg-form-sub {
+  font-size: 0.88rem;
+  color: var(--rg-muted);
+}
+
+/* ── FORM ── */
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reg-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--rg-muted);
+}
+
+.reg-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--rg-text);
+  background: var(--rg-light);
+  border: 1.5px solid var(--rg-border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color var(--rg-transition), box-shadow var(--rg-transition);
+}
+
+.reg-input::placeholder {
+  color: #aabbc7;
+}
+
+.reg-input:focus {
+  border-color: var(--rg-sky);
+  box-shadow: 0 0 0 3px rgba(46, 143, 201, 0.12);
+  background: var(--rg-card);
+}
+
+/* ── ERROR ── */
+.reg-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--rg-danger);
+  background: rgba(224, 84, 112, 0.07);
+  border: 1px solid rgba(224, 84, 112, 0.20);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+/* ── BUTTON ── */
+.reg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 6px;
+  background: var(--rg-navy);
+  color: var(--rg-white);
+  box-shadow: 0 3px 12px rgba(15, 45, 61, 0.22);
+  transition: all var(--rg-transition);
+}
+
+.reg-btn:hover:not(:disabled) {
+  background: var(--rg-teal);
+  box-shadow: 0 5px 18px rgba(26, 95, 122, 0.30);
+  transform: translateY(-1px);
+}
+
+.reg-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.reg-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.30);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: reg-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes reg-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── SWITCH ── */
+.reg-switch {
+  font-size: 0.85rem;
+  color: var(--rg-muted);
+  text-align: center;
+  margin-top: 22px;
+}
+
+.reg-switch a {
+  color: var(--rg-sky);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.reg-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 820px) {
+  .reg-card {
+    flex-direction: column;
+    max-width: 480px;
+    min-height: unset;
+  }
+
+  .reg-panel {
+    padding: 36px 28px 28px;
+  }
+
+  .reg-panel-title {
+    font-size: 1.8rem;
+  }
+
+  .reg-panel-desc {
+    display: none;
+  }
+
+  .reg-panel-img {
+    max-width: 140px;
+    margin-top: 16px;
+  }
+
+  .reg-form-panel {
+    flex-basis: auto;
+    padding: 32px 28px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reg-page {
+    padding: 16px;
+  }
+
+  .reg-panel {
+    padding: 28px 20px 20px;
+  }
+
+  .reg-panel-title {
+    font-size: 1.5rem;
+  }
+
+  .reg-form-panel {
+    padding: 28px 20px 32px;
+  }
+
+  .reg-form-title {
+    font-size: 1.5rem;
+  }
+}

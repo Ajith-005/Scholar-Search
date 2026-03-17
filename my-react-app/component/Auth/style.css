@@ -1,0 +1,317 @@
+/* =============================================
+   ScholarSearch — ForgotPassword & ResetPassword
+   Shared stylesheet: ForgotReset.css
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --fr-navy:       #0f2d3d;
+  --fr-teal:       #1a5f7a;
+  --fr-sky:        #2e8fc9;
+  --fr-success:    #22a06b;
+  --fr-danger:     #e05470;
+  --fr-warn:       #f4a522;
+  --fr-light:      #f5f8fb;
+  --fr-card:       #ffffff;
+  --fr-border:     #dde8f0;
+  --fr-text:       #1e3a4a;
+  --fr-muted:      #5d7f95;
+  --fr-white:      #ffffff;
+  --fr-radius:     20px;
+  --fr-shadow:     0 12px 40px rgba(15, 45, 61, 0.12);
+  --fr-transition: 0.22s ease;
+}
+
+/* ── PAGE SHELL ── */
+.fr-page {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--fr-light);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--fr-text);
+}
+
+/* ── CARD ── */
+.fr-card {
+  background: var(--fr-card);
+  border: 1.5px solid var(--fr-border);
+  border-radius: var(--fr-radius);
+  box-shadow: var(--fr-shadow);
+  width: 100%;
+  max-width: 440px;
+  padding: 44px 40px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* ── ICON CIRCLE ── */
+.fr-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(46, 143, 201, 0.09);
+  border: 1.5px solid rgba(46, 143, 201, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fr-sky);
+  margin: 0 auto 22px;
+}
+
+.fr-icon-wrap--warn {
+  background: rgba(244, 165, 34, 0.09);
+  border-color: rgba(244, 165, 34, 0.25);
+  color: var(--fr-warn);
+}
+
+/* ── HEADER ── */
+.fr-header {
+  margin-bottom: 26px;
+}
+
+.fr-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--fr-navy);
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.fr-sub {
+  font-size: 0.88rem;
+  color: var(--fr-muted);
+  text-align: center;
+  line-height: 1.65;
+}
+
+.fr-sub strong {
+  color: var(--fr-navy);
+  font-weight: 600;
+}
+
+/* ── OTP INFO BOX ── */
+.fr-otp-info {
+  font-size: 0.86rem;
+  color: var(--fr-muted);
+  background: rgba(46, 143, 201, 0.06);
+  border-left: 3px solid var(--fr-sky);
+  border-radius: 8px;
+  padding: 10px 14px;
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+
+.fr-otp-info strong {
+  color: var(--fr-navy);
+}
+
+/* ── FORM ── */
+.fr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fr-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--fr-muted);
+}
+
+.fr-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--fr-text);
+  background: var(--fr-light);
+  border: 1.5px solid var(--fr-border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color var(--fr-transition), box-shadow var(--fr-transition);
+}
+
+.fr-input::placeholder {
+  color: #aabbc7;
+}
+
+.fr-input:focus {
+  border-color: var(--fr-sky);
+  box-shadow: 0 0 0 3px rgba(46, 143, 201, 0.12);
+  background: var(--fr-card);
+}
+
+/* OTP input — larger text, centered */
+.fr-input--otp {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-align: center;
+  padding: 13px 14px;
+}
+
+/* ── STATUS MESSAGES ── */
+.fr-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.fr-msg--error {
+  color: var(--fr-danger);
+  background: rgba(224, 84, 112, 0.07);
+  border: 1px solid rgba(224, 84, 112, 0.20);
+}
+
+.fr-msg--success {
+  color: var(--fr-success);
+  background: rgba(34, 160, 107, 0.08);
+  border: 1px solid rgba(34, 160, 107, 0.20);
+}
+
+/* ── PRIMARY BUTTON ── */
+.fr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 24px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--fr-navy);
+  color: var(--fr-white);
+  box-shadow: 0 3px 12px rgba(15, 45, 61, 0.20);
+  transition: all var(--fr-transition);
+  text-decoration: none;
+}
+
+.fr-btn:hover:not(:disabled) {
+  background: var(--fr-teal);
+  box-shadow: 0 5px 18px rgba(26, 95, 122, 0.28);
+  transform: translateY(-1px);
+}
+
+.fr-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Spinner inside button */
+.fr-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: fr-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes fr-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── TEXT BUTTON (Resend OTP) ── */
+.fr-btn-text {
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fr-sky);
+  text-align: center;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--fr-transition);
+  width: 100%;
+}
+
+.fr-btn-text:hover {
+  color: var(--fr-teal);
+}
+
+/* ── BACK LINK ── */
+.fr-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--fr-muted);
+  text-decoration: none;
+  margin-top: 20px;
+  transition: color var(--fr-transition);
+}
+
+.fr-back:hover {
+  color: var(--fr-navy);
+}
+
+/* ── SUCCESS STATE ── */
+.fr-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.fr-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(34, 160, 107, 0.10);
+  border: 2px solid rgba(34, 160, 107, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fr-success);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+  .fr-page {
+    padding: 16px;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+
+  .fr-card {
+    padding: 32px 20px 28px;
+  }
+
+  .fr-title {
+    font-size: 1.5rem;
+  }
+
+  .fr-input--otp {
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+  }
+}
