@@ -12,7 +12,7 @@ const app = express();
 
 // ✅ Explicit CORS config
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "http://localhost:5173",  // ✅ Vite's port
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
