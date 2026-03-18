@@ -10,6 +10,10 @@ function generateOTP() {
   return crypto.randomInt(100000, 999999).toString();
 }
 
+function normalizeEmail(email) {
+  return typeof email === "string" ? email.trim().toLowerCase() : email;
+}
+
 module.exports = {
   register: async (req, res) => {
     try {
@@ -66,8 +70,10 @@ module.exports = {
 
   forgotPassword: async (req, res) => {
     try {
+      console.log('forgotPassword called with body:', req.body);
       const { email } = req.body;
-      const user = await User.findOne({ email });
+      const normalized = normalizeEmail(email);
+      const user = await User.findOne({ email: normalized });
       if (!user) return res.status(404).json({ message: "User not found" });
 
       const otp = generateOTP();
@@ -76,7 +82,7 @@ module.exports = {
       user.resetPasswordExpires = new Date(expires);
       await user.save();
 
-      await sendOtpEmail({ toEmail: email, otp });
+      await sendOtpEmail({ toEmail: normalized, otp });
 
       res.json({ message: "OTP sent to your email" });
     } catch (error) {
@@ -88,7 +94,8 @@ module.exports = {
   verifyOtp: async (req, res) => {
     try {
       const { email, otp } = req.body;
-      const user = await User.findOne({ email });
+      const normalized = normalizeEmail(email);
+      const user = await User.findOne({ email: normalized });
       if (!user) return res.status(404).json({ message: "User not found" });
       if (!user.resetPasswordOTP || !user.resetPasswordExpires) {
         return res.status(400).json({ message: "No OTP requested" });
@@ -110,7 +117,8 @@ module.exports = {
     try {
       const { email, otp, newPassword } = req.body;
       if (!email || !otp || !newPassword) return res.status(400).json({ message: "Missing fields" });
-      const user = await User.findOne({ email });
+      const normalized = normalizeEmail(email);
+      const user = await User.findOne({ email: normalized });
       if (!user) return res.status(404).json({ message: "User not found" });
 
       if (!user.resetPasswordOTP || !user.resetPasswordExpires) {
